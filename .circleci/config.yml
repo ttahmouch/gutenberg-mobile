@@ -263,9 +263,6 @@ jobs:
     steps:
       - checkout
       - checkout-submodules
-      - run:
-          name: Setup Android Tooling
-          command: .circleci/setup-android-on-ubuntu.sh
       - npm-install
       - run:
           name: Build JS Bundle
@@ -285,7 +282,13 @@ jobs:
           # ten minutes.
           no_output_timeout: 30m
       - run:
+          name: Setup Android Tooling
+          command: .circleci/setup-android-on-ubuntu.sh
+      - run:
           name: Build React Native Bridge & Upload to Bintray
+          environment:
+            # This comes from the setup-android-on-ubuntu.sh script
+            ANDROID_SDK_ROOT: /usr/lib/android-sdk
           command: |
             cd gutenberg/packages/react-native-bridge/android
 
