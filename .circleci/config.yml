@@ -307,6 +307,10 @@ jobs:
             fi
 
             ./publish-aztec-and-bridge.sh $VERSION
+            # Run a second time to verify an hythesis: there's
+            # some auth or timing problem in CI but if you run
+            # the command a second time, it's sorted out
+            ./publish-aztec-and-bridge.sh $VERSION
 
 workflows:
   gutenberg-mobile:
