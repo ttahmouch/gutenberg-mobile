@@ -310,7 +310,12 @@ jobs:
             # Run a second time to verify an hythesis: there's
             # some auth or timing problem in CI but if you run
             # the command a second time, it's sorted out
-            ./publish-aztec-and-bridge.sh $VERSION
+            #
+            # This is the command in the script, but the
+            # script is in the Gutenberg submodule so for this
+            # test it's easier to modify this file instead of
+            # making the script call stuff twice
+            ./gradlew :react-native-bridge:bintrayUpload -q -PpublishReactNativeBridgeVersion=$VERSION -PreactNativeAztecVersion=$VERSION
 
 workflows:
   gutenberg-mobile:
