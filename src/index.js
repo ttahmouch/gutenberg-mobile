@@ -6,6 +6,7 @@ import {
 	doGutenbergNativeSetup,
 	initialHtmlGutenberg,
 } from '@wordpress/react-native-editor';
+import { use } from '@wordpress/data';
 
 /**
  * Internal dependencies
@@ -13,6 +14,22 @@ import {
 import correctTextFontWeight from './text-font-weight-correct';
 import setupJetpackEditor from './jetpack-editor-setup';
 import initialHtml from './initial-html';
+
+// Register a Redux middleware to respond to actions originating within
+// Gutenberg, e.g. tracking analytic events
+use( ( registry ) => ( {
+	dispatch: ( namespace ) => {
+		const actions = { ...registry.dispatch( namespace ) };
+		if ( namespace === 'core/editor' ) {
+			const originalUndo = actions.undo;
+			actions.undo = ( ...args ) => {
+				console.log( '>>> Track UNDO action' );
+				return originalUndo( ...args );
+			};
+		}
+		return actions;
+	},
+} ) );
 
 addAction( 'native.pre-render', 'gutenberg-mobile', () => {
 	require( './strings-overrides' );
