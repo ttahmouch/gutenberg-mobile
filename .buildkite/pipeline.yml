@@ -13,8 +13,9 @@ steps:
 
         npm run prebundle:js
         npm run bundle:android
-
         buildkite-agent artifact upload bundle/android/App.js
+
+        npm run test:e2e:bundle:ios
 
   - label: "Build Android RN Bridge & Publish to S3"
     depends_on: "bundle-android"
