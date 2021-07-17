@@ -1,27 +1,27 @@
 steps:
-  - label: "Bundle Android"
-    key: "bundle-android"
-    plugins:
-      - docker#v3.8.0:
-          image: "oguzkocer/gb-mobile-image"
-          environment:
-            - "CI=true"
-    command: |
-        source /root/.bashrc
-
-        pushd gutenberg && nvm install && nvm use && popd
-        npm ci --unsafe-perm --prefer-offline --no-audit --no-progress
-
-        npm run prebundle:js
-        npm run bundle:android
-
-        buildkite-agent artifact upload bundle/android/App.js
+  #  - label: "Bundle Android"
+  #    key: "bundle-android"
+  #    plugins:
+  #      - docker#v3.8.0:
+  #          image: "oguzkocer/gb-mobile-image"
+  #          environment:
+  #            - "CI=true"
+  #    command: |
+  #        source /root/.bashrc
+  #
+  #        pushd gutenberg && nvm install && nvm use && popd
+  #        npm ci --unsafe-perm --prefer-offline --no-audit --no-progress
+  #
+  #        npm run prebundle:js
+  #        npm run bundle:android
+  #
+  #        buildkite-agent artifact upload bundle/android/App.js
 
   - label: "Build Android RN Bridge & Publish to S3"
-    depends_on: "bundle-android"
+    #    depends_on: "bundle-android"
     plugins:
       - docker#v3.8.0:
-          image: "public.ecr.aws/m4u4m2y0/android-build-image:latest"
+          image: "public.ecr.aws/m4u4m2y0/android-build-image:edde647bcbe5034ea39a14e9514c6b05636a7bf9"
           environment:
             - "CI=true"
             # DO NOT MANUALLY SET THESE VALUES!
@@ -29,8 +29,12 @@ steps:
             - "AWS_ACCESS_KEY"
             - "AWS_SECRET_KEY"
     command: |
-        buildkite-agent artifact download bundle/android/App.js .
-        mkdir -p gutenberg/packages/react-native-bridge/android/react-native-bridge/build/assets
-        cp ./bundle/android/App.js ./gutenberg/packages/react-native-bridge/android/react-native-bridge/build/assets/index.android.bundle
+        #buildkite-agent artifact download bundle/android/App.js .
+        #        mkdir -p gutenberg/packages/react-native-bridge/android/react-native-bridge/build/assets
+        #cp ./bundle/android/App.js ./gutenberg/packages/react-native-bridge/android/react-native-bridge/build/assets/index.android.bundle
+        #touch ./gutenberg/packages/react-native-bridge/android/react-native-bridge/build/assets/index.android.bundle
+        source /scripts/prepare_to_publish_to_s3_params.sh
+        PARAMS=prepare_to_publish_to_s3_params
+        echo "PARAMS: $PARAMS"
         # TODO: Use the correct version
-        ./publish-react-native-aztec-and-react-native-bridge.sh "test-build-kite-integration-$(date -u +%s)"
+        #./publish-react-native-aztec-and-react-native-bridge.sh "test-build-kite-integration-$(date -u +%s)"
