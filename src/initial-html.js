@@ -1,27 +1,5 @@
 export default `
-<!-- wp:jetpack/contact-info -->
-<div class="wp-block-jetpack-contact-info"><!-- wp:jetpack/email {"email":"me@wordpress.org"} -->
-<div class="wp-block-jetpack-email"><a href="mailto:me@wordpress.org">me@wordpress.org</a></div>
-<!-- /wp:jetpack/email -->
-
-<!-- wp:jetpack/phone {"phone":"+1"} -->
-<div class="wp-block-jetpack-phone"><a href="tel:+1">+1</a></div>
-<!-- /wp:jetpack/phone -->
-
-<!-- wp:jetpack/address {"address":"Random Street"} -->
-<div class="wp-block-jetpack-address"><div class="jetpack-address__address jetpack-address__address1">Random Street</div></div>
-<!-- /wp:jetpack/address --></div>
-<!-- /wp:jetpack/contact-info -->
-
-<!-- wp:jetpack/story {"mediaFiles":[{"alt":"","caption":"","id":320,"link":"https://cldup.com/n48GTQmw7s.jpg","mime":"image/jpeg","type":"image","url":"https://cldup.com/n48GTQmw7s.jpg"},{"alt":"","caption":"","id":321,"link":"https://cldup.com/u2kdydrlQv.jpg","mime":"image/jpeg","type":"image","url":"https://cldup.com/u2kdydrlQv.jpg"},{"alt":"","caption":"","id":319,"link":"https://cldup.com/fi7gqyUrbL.jpg","mime":"image/jpeg","type":"image","url":"https://cldup.com/fi7gqyUrbL.jpg"}]} -->
-<div class="wp-block-jetpack-story wp-story"></div>
-<!-- /wp:jetpack/story -->
-
-<!-- wp:jetpack/story -->
-<div class="wp-block-jetpack-story wp-story"></div>
-<!-- /wp:jetpack/story -->
-
-<!-- wp:jetpack/story {"mediaFiles":[]}} -->
-<div class="wp-block-jetpack-story wp-story"></div>
-<!-- /wp:jetpack/story -->
+<!-- wp:jetpack/tiled-gallery {"className":"is-style-square","columnWidths":[["48.60419","42.30866","9.08715"]],"ids":[271,272,273,274]} -->
+<div class="wp-block-jetpack-tiled-gallery is-style-square aligncenter"><div class="tiled-gallery__gallery"><div class="tiled-gallery__row columns-1"><div class="tiled-gallery__col"><figure class="tiled-gallery__item"><img alt="" aria-label="image 1 of 4 in gallery" data-height="1056" data-id="271" data-link="https://schrottky.wordpress.com/?attachment_id=271" data-url="https://schrottky.files.wordpress.com/2021/07/pexels-photo-869258.jpeg" data-width="1880" src="https://schrottky.files.wordpress.com/2021/07/pexels-photo-869258.jpeg?resize=1056%2C1056"/></figure></div></div><div class="tiled-gallery__row columns-3"><div class="tiled-gallery__col"><figure class="tiled-gallery__item"><img alt="" aria-label="image 2 of 4 in gallery" data-height="1214" data-id="272" data-link="https://schrottky.wordpress.com/?attachment_id=272" data-url="https://schrottky.files.wordpress.com/2021/07/pexels-photo-572897.jpeg" data-width="1880" src="https://schrottky.files.wordpress.com/2021/07/pexels-photo-572897.jpeg?resize=1214%2C1214"/></figure></div><div class="tiled-gallery__col"><figure class="tiled-gallery__item"><img alt="" aria-label="image 3 of 4 in gallery" data-height="1300" data-id="273" data-link="https://schrottky.wordpress.com/?attachment_id=273" data-url="https://schrottky.files.wordpress.com/2021/07/pexels-photo-2444429.jpeg" data-width="861" src="https://schrottky.files.wordpress.com/2021/07/pexels-photo-2444429.jpeg?resize=861%2C861"/></figure></div><div class="tiled-gallery__col"><figure class="tiled-gallery__item"><img alt="" aria-label="image 4 of 4 in gallery" data-height="1300" data-id="274" data-link="https://schrottky.wordpress.com/?attachment_id=274" data-url="https://schrottky.files.wordpress.com/2021/07/pexels-photo-2387876.jpeg" data-width="867" src="https://schrottky.files.wordpress.com/2021/07/pexels-photo-2387876.jpeg?resize=867%2C867"/></figure></div></div></div></div>
+<!-- /wp:jetpack/tiled-gallery -->
 `;
